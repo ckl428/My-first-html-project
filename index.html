@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/NavigationBar.css">
+    <title>Kyrie Irving Fanpage</title>
+</head>
+
+<body>
+    <header>
+        <h2>KYRIE IRVING FANPAGE <a href="index.html"><img src="image/kyrie-logo.gif" id="klogo"></a></h2>
+    </header>
+    <div class="">
+        <div>
+            <nav class="main_menubar">
+                <div>
+                    <ul>
+                        <li><a href="index.html" id="a1">Home</a>
+                        </li>
+                        <li><a href="KyrieNews.html">News</a>
+                        </li>
+                        <li> <a href="KyrieProduct.html">Products</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="slideshow-bg">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 5</div>
+                <a href="image/Kyrie1.jpg"><img src="image/Kyrie1.jpg" style="width:100%"></a>
+                <div class="text">Photo 1</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 5</div>
+                <a href="image/Kyrie2.jpg"><img src="image/Kyrie2.jpg" style="width:100%"></a>
+                <div class="text">Photo 2</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 5</div>
+                <a href="image/Kyrie3.jpg"><img src="image/Kyrie3.jpg" style="width:100%"></a>
+                <div class="text">Photo 3</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 5</div>
+                <a href="image/Kyrie4.jpg"><img src="image/Kyrie4.jpg" style="width:100%"></a>
+                <div class="text">Photo 4</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 5</div>
+                <a href="image/Kyrie5.jpg"><img src="image/Kyrie5.jpg" style="width:100%"></a>
+                <div class="text">Photo 5</div>
+            </div>
+
+            <br>
+
+
+        </div>
+    </div>
+
+
+
+    <div id="c0">
+        <div id="c1">
+            <div id="c11">
+                <h3>Who is Kyrie Irving</h3>
+                <hr>
+                <strong id="hiddenMessage"> <h4>More info about Kyrie>>></h4>  <a href="KyrieNews.html"><img src="image/kyrie%20icon.jpg" id="c11image"> </a></strong>
+                <p id="p11">Professional basketball player Kyrie Irving helped the Cleveland Cavaliers win their first NBA championship before moving on to star for the Boston Celtics.</p>
+            </div>
+            <div id="c12">
+                <h3>What's Happening with Kyrie</h3>
+                <hr>
+
+                <h4>Celtics praise injured teammate Kyrie Irving's text message of support</h4>
+                <p id="p12">BOSTON -- Celtics All-Star point guard Kyrie Irving sent a group text message to his teammates before Game 2, the contents of which resonated with his teammates before they took a commanding 2-0 lead in a first-round series against the Milwaukee Bucks.......</p>
+                <img src="image/kyrie%20injury.jpg" class="kyrieNewsImg">
+                <a href="KyrieNews.html" class="more"><img src="image/more%20info%20button.jpg"  class= "moreImg"></a>
+            </div>
+        </div>
+
+
+        <div id="c2">
+            <h3>Products</h3>
+            <hr>
+            <h4>Kyrie Irving: Gifts,Merchandise</h4>
+            <div class="productList">
+                <a href="https://www.redbubble.com/people/myrepublic/works/22559430-kyrie-irving?grid_pos=2&p=t-shirt&rbs=9ef5586f-7eb1-43af-921e-07517edbc48c&ref=shop_grid&style=mens"><img src="image/kyrie%20Tshirt.jpg" class="product" id="pt1"></a>
+                <a href="https://www.redbubble.com/people/rattraptees/works/27924684-kyrie-irving-hold-it?grid_pos=1&p=iphone-case&rbs=f309d38a-2889-4cf1-9c2f-5b62c6491614&ref=shop_grid"><img src="image/kyrie%20case.jpg" class="product" id="pt2"></a>
+                <a href="https://www.nike.com.hk/product/fair/zofWSODf.htm"><img src="image/kyrie4ep.jpg" class="product" id="pt3"></a>
+            </div>
+
+            <strong id="c2t"> Click here to order it now >></strong>
+            <a href="KyrieProduct.html"><img src="image/ordericon.png" id="c2img"></a>
+
+            <div id="c3">
+                <h3>Career Highlights</h3>
+                <hr>
+                <h4>Kyrie Irving's Spin Move Shakes Lillard</h4>
+                <a href="https://www.youtube.com/watch?v=ABC0BukoeRQ"><img src="image/kyriefake.gif" class="careerImg"></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        The Answer &copy; 2018
+    </footer>
+</body>
+<script>
+    //自動幻燈片code
+    var autoSlideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        //use for loop to show the pictures
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        //自動幻燈片的index+1;
+        autoSlideIndex++;
+        //如當前圖片的index大於圖片總數,將圖片重設為第一張
+        if (autoSlideIndex > x.length) {
+            autoSlideIndex = 1
+        }
+        x[autoSlideIndex-1].style.display = "block";
+        //switch to next picture after 3 seconds
+        setTimeout(carousel, 3000);
+    }
+</script>
+</html>
