@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="form.css">
+  <meta charset="UTF-8">
+  <title>form</title>
+  <script type="text/javascript">
+    function startform() {
+      document.getElementById("qua1").disabled = true;
+      document.getElementById("qua2").disabled = true;
+      document.getElementById("qua3").disabled = true;
+
+      document.order_form.item1Amount.disabled = true;
+      document.order_form.item2Amount.disabled = true;
+      document.order_form.item3Amount.disabled = true;
+      document.order_form.total_amount.disabled = true;
+      document.order_form.discount_Total.disabled = true;
+
+    }
+
+    function TriggerItem() {
+
+      if (document.getElementById("item1").checked) {
+        document.getElementById("qua1").disabled = false;
+      } else {
+        document.getElementById("qua1").value = "0";
+        document.order_form.item1Amount.value = "0";
+        document.getElementById("qua1").disabled = true;
+        order_price();
+      }
+
+      if (document.getElementById("item2").checked) {
+        document.getElementById("qua2").disabled = false;
+      } else {
+        document.getElementById("qua2").value = "0";
+        document.order_form.item2Amount.value = "0";
+        document.getElementById("qua2").disabled = true;
+        order_price();
+      }
+
+      if (document.getElementById("item3").checked) {
+        document.getElementById("qua3").disabled = false;
+      } else {
+        document.getElementById("qua3").value = "0";
+        document.order_form.item3Amount.value = "0";
+        document.getElementById("qua3").disabled = true;
+        order_price();
+      }
+
+    };
+
+    function order_price() {
+      var amountOne = parseFloat(document.getElementById("qua1").value) * 15;
+      document.order_form.item1Amount.value = amountOne;
+
+      var amountTwo = parseFloat(document.getElementById("qua2").value) * 40;
+      document.order_form.item2Amount.value = amountTwo;
+
+      var amountThree = parseFloat(document.getElementById("qua3").value) * 800;
+      document.order_form.item3Amount.value = amountThree;
+
+      document.order_form.total_amount.value = amountOne + amountTwo + amountThree;
+
+      disQ();
+    };
+    
+    function disQ(){
+    var dis_totalAmount=document.order_form.total_amount.value;
+    var jerseyAns=document.order_form.jerseyNum.value;
+      if(jerseyAns=="11"){
+        dis_totalAmount=dis_totalAmount*0.8;
+      }     
+      document.order_form.discount_Total.value = dis_totalAmount;
+      
+    };
+    
+    
+  </script>
+
+</head>
+
+<body onload="startform();">
+  <div class="order_form_container">
+    <form name="order_form" action="post">
+
+      <header class="form_header">
+        <h2><strong>Order Form</strong></h2></header>
+
+      <fieldset>
+        <table border="1" style="border-collapse: collapse;">
+          <tr>
+            <td>First Name</td>
+            <td>
+              <input type="text" name="fname" placeholder="First name" pattern="^[A-Za-z]{1,}$" required>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Last Name</td>
+            <td>
+              <input type="text" name="lname" placeholder="Last name" pattern="^[A-Za-z]{1,}$" required>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Credit Card Number</td>
+            <td>
+              <input type="text" name="cardNum" placeholder="Credit card number" pattern="^[0-9]{16}$" required>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Expiration Date</td>
+            <td>
+              <input type="text" name="expired_date" placeholder="Expiration Date" pattern="^[A-Za-z]{1,}$" required>
+            </td>
+          </tr>
+
+          <tr>
+            <td>CVV</td>
+            <td>
+              <input type="text" name="cvv" placeholder="CVV" pattern="^[0-9]{3}$" required>
+            </td>
+          </tr>
+
+        </table>
+
+        <table name="item_table" style="width:100%" action="post">
+
+          <tr>
+            <th>checkbox</th>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+          </tr>
+
+          <tr>
+            <th>
+              <input type="checkbox" id="item1" onclick="TriggerItem();">
+            </th>
+            <td>Phone Case</td>
+            <td>$15</td>
+            <td>
+              <input type="text" id="qua1" placeholder="0" pattern="^[0-9]{1,100}$" onchange="order_price();" required>
+              <!--           <input type="number" id="qua1" min="0" onclick="TriggerItem();" required>-->
+            </td>
+
+            <td>
+              <input type="text" placeholder="0" name="item1Amount" value="0">
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <input type="checkbox" id="item2" onclick="TriggerItem();">
+            </th>
+            <td>T-shirt</td>
+            <td>$40</td>
+            <td>
+              <input type="text" id="qua2" placeholder="0" pattern="^[0-9]{1,100}$" onchange="order_price();" required>
+            </td>
+            <td>
+              <input type="text" placeholder="0" name="item2Amount" value="0">
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <input type="checkbox" id="item3" onclick="TriggerItem();">
+            </th>
+            <td>Kyrie Irving shoes</td>
+            <td>$800</td>
+            <td>
+              <input type="text" id="qua3" placeholder="0" pattern="^[0-9]{1,100}$" onchange="order_price();" required>
+            </td>
+            <td>
+              <input type="text" placeholder="0" name="item3Amount" value="0">
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>Total Amount:
+              <input type="<text></text>" name="total_amount" onchange="order_price();" value="0">
+            </td>
+          </tr>
+
+        </table>
+        <div>
+          <h3>Discount Question</h3> If you can get the correct answer, you get the offer of 20 percentage off !!!
+          <fieldset>
+            Q1) What is his jersey number in Celtics Boston?
+            <input type="number" name="jerseyNum" value="0" onchange="disQ();"><br>
+           
+          </fieldset>
+           Total Amount : <input type="text" name="discount_Total"  value="0">
+        </div>
+
+
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </fieldset>
+
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+
+}
+
+
+body {
+    font-family: Verdana,
+    sans-serif;
+    margin: 0;
+    background: #ddd;
+}
+
+h2 {
+    padding: 20px;
+    color: #f0f1f5;
+    font-family: sans-serif;
+    text-align: left;
+    font-size: 30pt;
+    letter-spacing: 10px;
+    background-color: black;
+
+}
+
+h4 {
+    color: red;
+    position: relative;
+    display: inline-block;
+}
+
+footer {
+    border-top: 2px solid #fc575e;
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background: #112233;
+    color: #fff;
+    font-style: italic;
+    font-size: 11pt;
+    text-transform: uppercase;
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    box-sizing: border-box;
+
+
+}
+
+.main_menubar {
+    width: 100%;
+    padding-left: 20px;
+    background: black;
+    
+}
+
+.main_menubar ul {
+    padding: 0;
+    background: black;
+    overflow: hidden;
+
+
+}
+
+
+.main_menubar ul li {
+    list-style: none;
+    display: inline-block;  /*將li的內容並排,並可設置width,height*/
+    border: 0.5px solid red;
+    border-radius: 10px;    
+}
+
+.main_menubar ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: red;
+    
+}
+
+.main_menubar ul li a:hover {
+    background: red;
+    color: white;
+    border-radius: 10px;
+
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+
+    .main_menubar {
+        width: 100%;
+        padding-left: 0px;
+        background: black;
+    }
+    .main_menubar ul li {
+        display: block;  /*將li的內容以區塊顯示(會換行),可設置width,height*/
+        text-align: center;
+    }
+
+    h2 {
+        padding: 20px;
+        color: #f0f1f5;
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 30pt;
+        letter-spacing: 10px;
+        background-color: black;
+        font-size: 25px;
+    }
+    h2 img {
+        width: 50px;
+        height: 50px;
+    }
+}
